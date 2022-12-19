@@ -1,0 +1,44 @@
+{% extends 'core/index.html' %}
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-1">
+        <h2>Registro</h2>
+    </div>
+</div>
+<form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+    <div class="row justify-content-center mb-3">
+        <label for="user" class=" col-md-2 col-lg-1 col-form-label ">Usuario</label>
+        <input type="text" name="user"  class="col-sm-8 control-form" required>
+    </div>
+
+    <div class="row justify-content-center mb-3">
+        <label for="email" class="col-md-2 col-lg-1 col-form-label ">Email</label>
+        <input type="email" name="email" class="col-sm-8 control-form" required>
+    </div>
+
+    <div class="row justify-content-center mb-3">
+        <label for="password" class="col-md-2 col-lg-1 col-form-label ">Senha</label>
+        <input type="password" name="password" class="col-sm-8" required>
+    </div>
+    <div class="row justify-content-center mb-5">
+        <div class="col-sm-11 offset-sm-4">
+            <div class="form-check">
+            <label class="form-check-label" for="gridCheck1">
+                Aceito os termos.
+            </label>
+            <input class="form-check-input" type="checkbox" name="termos" id="gridCheck1" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mb-5">
+        <div class="col-sm-8"></div>
+        <button type="submit" class="btn btn-primary col-sm-auto">Login</button>
+    </div>
+</form>
+
+{% if error != '' %}
+<h2>{{error}}</h2>
+{% endif %}
+{% endblock content %}

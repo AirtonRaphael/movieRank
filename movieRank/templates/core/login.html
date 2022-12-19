@@ -1,0 +1,28 @@
+{% extends 'core/index.html' %}
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-1">
+        <h2>Login</h2>
+    </div>
+</div>
+<form action="{% url 'login' %}" method="post" >
+    {% csrf_token %}
+    <div class="row justify-content-center mb-3">
+        <label for="email" class="col-sm-auto col-form-label ">Email</label>
+        <input type="email" name="email" class="col-sm-8 control-form">
+    </div>
+
+    <div class="row justify-content-center mb-5">
+        <label for="password" class="col-sm-auto col-form-label ">Senha</label>
+        <input type="password" name="password" class="col-sm-8 ">
+    </div>
+
+    <div class="row justify-content-center mb-5">
+        <div class="col-sm-8">Não possui uma conta? Registre-se <a href="{% url 'register' %}">aqui</a></div>
+        <button type="submit" class="btn btn-primary col-sm-auto">Login</button>
+    </div>
+    {% if error != '' %}
+    <h2>{{ error }}</h2>
+    {% endif %} 
+</form>
+{% endblock content %}

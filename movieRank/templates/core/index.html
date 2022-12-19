@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block nav_bar %}
+<li class="nav-item"><a href="{% url 'login' %}" class="nav-link mx-3">Login</a></li>
+<li class="nav-item"><a href="{% url 'register' %}" class="nav-link mx-3">Registro</a></li>
+{% endblock nav_bar %}
+{% block content %}
+<div class="row mt-5">
+    <div class="col-sm-12"><h2>Crie seu rank de melhores filmes e compartilhe com os amigos!</h2></div>
+</div>
+<div class="row mt-4">
+    <div class="col-sm-8"></div>
+    <div class="col-sm-4"><img src="{% static 'image/podium1.png'%}" alt="imagem de podiun"></div>
+</div>
+{% endblock content%}
